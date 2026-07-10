@@ -128,7 +128,6 @@ struct ContentView: View {
             PrivacyPolicyView()
         }
         .onAppear {
-            // viewModel.loadMockSession()
             presentationManager.onRecordMeeting = { viewModel.requestLiveRecording() }
             presentationManager.onTranscribeFile = { viewModel.requestNewFile() }
             presentationManager.onPauseRecording = { viewModel.pauseLiveRecording() }

@@ -16,7 +16,7 @@ actor LocalMeetingPipeline {
     init(sortformerConfigs: [SortformerConfig] = LocalMeetingPipeline.defaultSortformerConfigs) {
         self.sortformerConfigs = sortformerConfigs
         // Explicit setup is the only path permitted to enable model downloads.
-        DownloadUtils.enforceOffline = true
+        ModelHub.offlineMode = true
     }
 
     func process(

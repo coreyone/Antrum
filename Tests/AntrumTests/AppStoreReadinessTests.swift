@@ -70,6 +70,7 @@ struct AppStoreReadinessTests {
         #expect(RecordingConsentPolicy.message.contains("microphone"))
         #expect(RecordingConsentPolicy.message.contains("meeting audio"))
         #expect(RecordingConsentPolicy.message.contains("locally"))
+        #expect(RecordingConsentPolicy.message.contains("REC"))
     }
 
     @Test
@@ -149,5 +150,37 @@ struct AppStoreReadinessTests {
         #expect(combined.contains("does not keep history"))
         #expect(!combined.contains("Screen Recording"))
         #expect(!combined.contains("record screen video"))
+    }
+
+    @Test
+    func privacyResourcesUsePublicPolicyAndSupportURLs() {
+        #expect(AppStoreExternalResources.privacyPolicyURL.host == "github.com")
+        #expect(AppStoreExternalResources.privacyPolicyURL.path.contains("PRIVACY.md"))
+        #expect(AppStoreExternalResources.supportURL.host == "github.com")
+        #expect(AppStoreExternalResources.supportURL.path.contains("issues/new/choose"))
+    }
+
+    @Test
+    func localDataDeletionRemovesOnlyAntrumDataAndOwnedLegacyModels() throws {
+        let root = FileManager.default.temporaryDirectory
+            .appendingPathComponent("AntrumLocalDataDeletionTests-\(UUID().uuidString)", isDirectory: true)
+        defer { try? FileManager.default.removeItem(at: root) }
+
+        let recordings = RecordingStoragePolicy.recordingsDirectory(in: root)
+        try FileManager.default.createDirectory(at: recordings, withIntermediateDirectories: true)
+        try Data("recording".utf8).write(to: recordings.appendingPathComponent("recording.caf"))
+
+        let legacyOwned = LocalModelStoragePolicy.legacyModelDirectory(for: .parakeetUnified, in: root)
+        try FileManager.default.createDirectory(at: legacyOwned, withIntermediateDirectories: true)
+
+        let unrelatedLegacy = root
+            .appendingPathComponent("FluidAudio/Models/unrelated-model", isDirectory: true)
+        try FileManager.default.createDirectory(at: unrelatedLegacy, withIntermediateDirectories: true)
+
+        try LocalDataDeletionPolicy.deleteAll(in: root)
+
+        #expect(!FileManager.default.fileExists(atPath: RecordingStoragePolicy.appSupportDirectory(in: root).path))
+        #expect(!FileManager.default.fileExists(atPath: legacyOwned.path))
+        #expect(FileManager.default.fileExists(atPath: unrelatedLegacy.path))
     }
 }

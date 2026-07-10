@@ -18,6 +18,8 @@ struct TranscribeAudioIntent: AppIntent {
     }
     func perform() async throws -> some ReturnsValue<String> {
         let tempDir = FileManager.default.temporaryDirectory
+            .appendingPathComponent("AntrumAppIntent-\(UUID().uuidString)", isDirectory: true)
+        try FileManager.default.createDirectory(at: tempDir, withIntermediateDirectories: true)
         let rawFilename = file.filename
         let cleanFilename = URL(fileURLWithPath: rawFilename).lastPathComponent
         let safeFilename = cleanFilename.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? "temp_audio_file" : cleanFilename
@@ -27,7 +29,7 @@ struct TranscribeAudioIntent: AppIntent {
         try file.data.write(to: fileURL)
 
         defer {
-            try? FileManager.default.removeItem(at: fileURL)
+            try? FileManager.default.removeItem(at: tempDir)
         }
 
         let pipeline = LocalMeetingPipeline()

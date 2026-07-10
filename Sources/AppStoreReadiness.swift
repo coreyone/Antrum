@@ -140,8 +140,41 @@ enum AppUninstallPolicy {
     }
 }
 
+enum AppStoreExternalResources {
+    static let privacyPolicyURL = URL(string: "https://github.com/coreyone/Antrum/blob/main/PRIVACY.md")!
+    static let supportURL = URL(string: "https://github.com/coreyone/Antrum/issues/new/choose")!
+    static let modelNoticesURL = URL(string: "https://github.com/coreyone/Antrum/blob/main/THIRD_PARTY_AND_MODEL_NOTICES.md")!
+}
+
+enum LocalDataDeletionPolicy {
+    static func deletionTargets(in applicationSupportDirectory: URL) -> [URL] {
+        [RecordingStoragePolicy.appSupportDirectory(in: applicationSupportDirectory)]
+            + LocalModelStoragePolicy.ownedModelRepos.map {
+                LocalModelStoragePolicy.legacyModelDirectory(for: $0, in: applicationSupportDirectory)
+            }
+    }
+
+    static func deleteAll(
+        in applicationSupportDirectory: URL? = nil,
+        fileManager: FileManager = .default
+    ) throws {
+        let applicationSupport = applicationSupportDirectory ?? fileManager.urls(
+            for: .applicationSupportDirectory,
+            in: .userDomainMask
+        ).first ?? fileManager.homeDirectoryForCurrentUser.appendingPathComponent(
+            "Library/Application Support",
+            isDirectory: true
+        )
+
+        for target in deletionTargets(in: applicationSupport)
+        where fileManager.fileExists(atPath: target.path) {
+            try fileManager.removeItem(at: target)
+        }
+    }
+}
+
 enum RecordingConsentPolicy {
     static let title = "Record This Meeting Locally?"
     static let confirmationAction = "Record Meeting"
-    static let message = "Only record locally when you have permission from everyone involved. Antrum captures your microphone and meeting audio."
+    static let message = "Only record locally when you have permission from everyone involved. Antrum captures your microphone and meeting audio. REC remains visible in the menu bar and Dock while capture is active."
 }

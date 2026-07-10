@@ -14,7 +14,7 @@ struct AntrumApp: App {
     init() {
         _ = try? LocalModelStoragePolicy.migrateLegacyModelDirectories()
         // Model downloads are always initiated from the explicit setup surface.
-        DownloadUtils.enforceOffline = true
+        ModelHub.offlineMode = true
     }
 
     var body: some Scene {

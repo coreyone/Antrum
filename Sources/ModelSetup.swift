@@ -112,7 +112,7 @@ actor LocalModelDownloadManager {
         _ packageID: LocalModelPackageID,
         progress: @escaping @Sendable (Double) -> Void
     ) async throws {
-        let progressHandler: DownloadUtils.ProgressHandler = { update in
+        let progressHandler: ProgressHandler = { update in
             progress(max(0, min(1, update.fractionCompleted)))
         }
 

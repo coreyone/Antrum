@@ -114,30 +114,6 @@ final class MeetingTranscriptionViewModel: ObservableObject {
             && calendarAccessState.canReadEvents
     }
 
-    func loadMockSession() {
-        let mockURL = URL(fileURLWithPath: "/Users/coreyoneal/Documents/Antrum/test.wav")
-        let mockSpeakers = [
-            SpeakerDraft(id: "S1", defaultLabel: "Speaker 1", customName: "Mina"),
-            SpeakerDraft(id: "S2", defaultLabel: "Speaker 2", customName: "Jordan", mergeTargetID: "S1"),
-            SpeakerDraft(id: "S3", defaultLabel: "Speaker 3", customName: "Alex")
-        ]
-        let mockBlocks = [
-            TranscriptBlock(speakerID: "S1", start: 0, end: 12, text: "Hello everyone, welcome to the Antrum design review pass."),
-            TranscriptBlock(speakerID: "S2", start: 12, end: 25, text: "Thanks Mina. We should look closely at the corner radii of the panels and ensure the contrast ratios are legible."),
-            TranscriptBlock(speakerID: "S3", start: 25, end: 40, text: "Yes, and make sure that we disable inputs for merged speakers to avoid confusion during the transcription review.")
-        ]
-        let session = MeetingSession(
-            sourceURL: mockURL,
-            processedAt: Date(),
-            diarizationBackend: .nvidiaSortformerV21,
-            diarizationFallbackReason: nil,
-            speakers: mockSpeakers,
-            blocks: mockBlocks
-        )
-        self.apply(session)
-    }
-
-
     func acceptDroppedFile(url: URL) {
         guard modelSetupRequest == nil else {
             showUserMessage(title: "Model setup active", detail: "Finish setup before importing another file.", kind: .status)

@@ -3,7 +3,7 @@ import Foundation
 
 /// Serializes the only periods when FluidAudio is allowed to reach the network.
 ///
-/// FluidAudio documents `DownloadUtils.enforceOffline` as a process-global,
+/// FluidAudio documents `ModelHub.offlineMode` as a process-global,
 /// startup-only setting. Antrum needs a short, explicit exception for a
 /// user-approved model download, so all exceptions go through this gate.
 actor FluidAudioDownloadGate {
@@ -13,7 +13,7 @@ actor FluidAudioDownloadGate {
     private var isOccupied = false
     private var waiters: [CheckedContinuation<Void, Never>] = []
 
-    init(setOffline: @escaping @Sendable (Bool) -> Void = { DownloadUtils.enforceOffline = $0 }) {
+    init(setOffline: @escaping @Sendable (Bool) -> Void = { ModelHub.offlineMode = $0 }) {
         self.setOffline = setOffline
     }
 

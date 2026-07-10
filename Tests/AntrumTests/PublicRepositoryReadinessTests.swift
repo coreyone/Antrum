@@ -69,11 +69,13 @@ struct PublicRepositoryReadinessTests {
             #expect(ci.contains("  \(job):"))
         }
         #expect(ci.contains("contents: read"))
+        #expect(ci.contains("fetch-depth: 0"))
         #expect(!ci.contains("contents: write"))
         #expect(!ci.contains("workflow_run"))
         #expect(codeowners.contains("@coreyone"))
         #expect(!codeowners.contains("@coreyoneal"))
         #expect(script.contains("public-check"))
+        #expect(script.contains("GITHUB_EVENT_NAME"))
     }
 
     @Test

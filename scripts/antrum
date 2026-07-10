@@ -117,8 +117,17 @@ public_check() {
     missing=1
   fi
 
-  if git -C "$ROOT_DIR" rev-parse --verify -q HEAD >/dev/null \
-    && git -C "$ROOT_DIR" log --format='%ae%n%ce' | grep -F "$private_email"; then
+  local history_ref="HEAD"
+  # GitHub checks pull requests out at a synthetic merge commit. That commit is
+  # never published and may inherit a maintainer email, so scan the actual PR
+  # head instead. Pushes to main continue to scan the published HEAD history.
+  if [[ "${GITHUB_EVENT_NAME:-}" == "pull_request" ]] \
+    && git -C "$ROOT_DIR" rev-parse --verify -q "HEAD^2" >/dev/null; then
+    history_ref="HEAD^2"
+  fi
+
+  if git -C "$ROOT_DIR" rev-parse --verify -q "$history_ref" >/dev/null \
+    && git -C "$ROOT_DIR" log "$history_ref" --format='%ae%n%ce' | grep -F "$private_email"; then
     echo "Personal email is present in public history." >&2
     missing=1
   fi

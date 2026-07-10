@@ -2,6 +2,9 @@ import SwiftUI
 
 struct PrivacyPolicyView: View {
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var viewModel: MeetingTranscriptionViewModel
+    @State private var isShowingLocalDataDeletionConfirmation = false
+    @State private var localDataDeletionStatus: String?
 
     var body: some View {
         VStack(alignment: .leading, spacing: AppTheme.Space.xl) {
@@ -36,7 +39,7 @@ struct PrivacyPolicyView: View {
                     )
                     privacySection(
                         title: "Local storage",
-                        detail: "During a meeting recording, separate microphone and meeting-audio files are stored in Antrum's Application Support folder for processing. Dictation uses temporary microphone audio and does not keep history. Markdown is saved only when you choose a destination. Deleting Antrum's Application Support folder removes local recordings, temp artifacts, and offline models."
+                        detail: "During a meeting recording, separate microphone and meeting-audio files are stored in Antrum's Application Support folder for processing. Dictation uses temporary microphone audio and does not keep history. Markdown is saved only when you choose a destination. Use Delete Local Recordings and Models below to remove Antrum's local recordings, temporary artifacts, and offline models; Markdown saved elsewhere is not removed."
                     )
                     privacySection(
                         title: "Model downloads",
@@ -46,6 +49,31 @@ struct PrivacyPolicyView: View {
                         title: "Tracking",
                         detail: "Antrum does not use advertising tracking, analytics SDKs, accounts, or in-app purchases. Revoke Microphone, Accessibility, or Calendar access in macOS Privacy & Security settings."
                     )
+
+                    HStack(spacing: AppTheme.Space.lg) {
+                        Link("Privacy Policy", destination: AppStoreExternalResources.privacyPolicyURL)
+                        Link("Model Notices", destination: AppStoreExternalResources.modelNoticesURL)
+                        Link("Support & Feedback", destination: AppStoreExternalResources.supportURL)
+                    }
+                    .font(AppTheme.Typography.caption)
+
+                    VStack(alignment: .leading, spacing: AppTheme.Space.xs) {
+                        Button("Delete Local Recordings and Models", role: .destructive) {
+                            isShowingLocalDataDeletionConfirmation = true
+                        }
+                        .appGlassButton()
+                        .disabled(!canDeleteLocalData)
+
+                        if let localDataDeletionStatus {
+                            Text(localDataDeletionStatus)
+                                .font(AppTheme.Typography.micro)
+                                .foregroundStyle(AppTheme.softInk)
+                        } else if !canDeleteLocalData {
+                            Text("Stop recording, processing, or model setup before deleting local data.")
+                                .font(AppTheme.Typography.micro)
+                                .foregroundStyle(AppTheme.softInk)
+                        }
+                    }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
@@ -55,6 +83,19 @@ struct PrivacyPolicyView: View {
         .background(AppBackdropView())
         .appGlassControlSurface(cornerRadius: AppTheme.Radius.panel)
         .preferredColorScheme(.dark)
+        .confirmationDialog(
+            "Delete Local Recordings and Models?",
+            isPresented: $isShowingLocalDataDeletionConfirmation,
+            titleVisibility: .visible
+        ) {
+            Button("Delete Local Data", role: .destructive) {
+                deleteLocalData()
+            }
+
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("This removes Antrum's local recordings, temporary artifacts, and downloaded models. Markdown files saved outside Antrum are not removed.")
+        }
     }
 
     private func privacySection(title: String, detail: String) -> some View {
@@ -68,5 +109,20 @@ struct PrivacyPolicyView: View {
                 .fixedSize(horizontal: false, vertical: true)
         }
         .padding(.vertical, AppTheme.Space.sm)
+    }
+
+    private var canDeleteLocalData: Bool {
+        !viewModel.liveRecordingState.isActive
+            && viewModel.progressStage == nil
+            && viewModel.modelSetupRequest == nil
+    }
+
+    private func deleteLocalData() {
+        do {
+            try LocalDataDeletionPolicy.deleteAll()
+            localDataDeletionStatus = "Local recordings and models deleted."
+        } catch {
+            localDataDeletionStatus = "Could not delete local data: \(error.localizedDescription)"
+        }
     }
 }

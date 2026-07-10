@@ -24,4 +24,4 @@ You are responsible for obtaining consent from all meeting participants before r
 - Dictation does not keep history.
 - Model downloads occur only after you choose Download. They use FluidAudio/Hugging Face; audio, transcripts, speaker labels, and calendar details are not sent.
 
-Deleting `~/Library/Application Support/Antrum` removes local recordings, temporary artifacts, and downloaded models.
+Use **Privacy → Delete Local Recordings and Models** to remove Antrum's local recordings, temporary artifacts, and downloaded models. Markdown files you save elsewhere are not removed by that control.
