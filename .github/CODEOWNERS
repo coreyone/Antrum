@@ -1,0 +1,8 @@
+* @coreyone
+
+.github/ @coreyone
+project.yml @coreyone
+scripts/ @coreyone
+Sources/Antrum.entitlements @coreyone
+Sources/Info.plist @coreyone
+Antrum.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved @coreyone

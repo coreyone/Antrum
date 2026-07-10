@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability privately
+    url: https://github.com/coreyone/Antrum/security/advisories/new
+    about: Do not disclose security vulnerabilities in public issues.
+  - name: Support and product questions
+    url: https://github.com/coreyone/Antrum/issues
+    about: Search existing issues before opening a new one.

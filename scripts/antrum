@@ -1,0 +1,213 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+PROJECT="$ROOT_DIR/Antrum.xcodeproj"
+SCHEME="Antrum"
+
+usage() {
+  cat <<'USAGE'
+Usage: scripts/antrum <command> [--json]
+
+Commands:
+  generate      Generate Antrum.xcodeproj from project.yml
+  build         Build Debug locally without code signing
+  test          Generate then run the Debug test suite
+  run           Build Debug and launch Antrum
+  lint          Check public repository policy and source-only constraints
+  doctor        Print local tool and path diagnostics
+  secret-scan   Scan tracked text files for common committed-secret patterns
+  public-check  Reject private artifacts and required-public-file gaps
+USAGE
+}
+
+require_cmd() {
+  local name="$1"
+  if ! command -v "$name" >/dev/null 2>&1; then
+    echo "Missing required command: $name" >&2
+    return 1
+  fi
+}
+
+generate() {
+  require_cmd xcodegen
+  (cd "$ROOT_DIR" && xcodegen generate)
+}
+
+build() {
+  require_cmd xcodebuild
+  xcodebuild \
+    -project "$PROJECT" \
+    -scheme "$SCHEME" \
+    -configuration Debug \
+    build \
+    CODE_SIGNING_ALLOWED=NO \
+    -destination 'platform=macOS'
+}
+
+test_app() {
+  generate
+  require_cmd xcodebuild
+  xcodebuild \
+    -project "$PROJECT" \
+    -scheme "$SCHEME" \
+    -configuration Debug \
+    test \
+    CODE_SIGNING_ALLOWED=NO \
+    -destination 'platform=macOS'
+}
+
+run_app() {
+  build
+  local app_path
+  app_path="$(xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration Debug -showBuildSettings 2>/dev/null \
+    | awk -F'= ' '/ BUILT_PRODUCTS_DIR / { dir=$2 } / FULL_PRODUCT_NAME / { name=$2 } END { print dir "/" name }')"
+  if [[ ! -d "$app_path" ]]; then
+    echo "Build succeeded, but app bundle was not found: $app_path" >&2
+    return 1
+  fi
+  open -n "$app_path"
+  echo "Launched $app_path"
+}
+
+secret_scan() {
+  local pattern
+  pattern='(AKIA[0-9A-Z]{16}|ASIA[0-9A-Z]{16}|ghp_[A-Za-z0-9_]{36,}|github_pat_[A-Za-z0-9_]{22,}|sk-[A-Za-z0-9]{20,}|xox[baprs]-[A-Za-z0-9-]{10,}|-----BEGIN (RSA |OPENSSH |EC |DSA )?PRIVATE KEY-----)'
+  if git -C "$ROOT_DIR" grep -n -I -E "$pattern" -- . ':!*.png' ':!*.wav'; then
+    echo "Potential secret pattern found. Remove it before publishing." >&2
+    return 1
+  fi
+  echo "No common committed-secret patterns found."
+}
+
+public_check() {
+  local missing=0
+  local path
+  local required_paths=(
+    "LICENSE"
+    "THIRD_PARTY_AND_MODEL_NOTICES.md"
+    "CONTRIBUTING.md"
+    "SECURITY.md"
+    "SUPPORT.md"
+    ".github/CODEOWNERS"
+    ".github/pull_request_template.md"
+    ".github/ISSUE_TEMPLATE/bug_report.yml"
+    ".github/ISSUE_TEMPLATE/feature_request.yml"
+    ".github/ISSUE_TEMPLATE/config.yml"
+    ".github/workflows/ci.yml"
+  )
+  for path in "${required_paths[@]}"; do
+    if [[ ! -f "$ROOT_DIR/$path" ]]; then
+      echo "Missing required public repository file: $path" >&2
+      missing=1
+    fi
+  done
+
+  local forbidden_path_pattern
+  forbidden_path_pattern='(^|/)(dogfood-output-|test\.wav$|APP_STORE_SUBMISSION\.md$|tasks/|artifacts/|DerivedData/|\.DS_Store$|.*\.profraw$|docs/(RELEASE_CONTROLLER|RUNBOOK|METRICS|UX_DISCOVERY_REPORT)\.md$)'
+  if git -C "$ROOT_DIR" ls-files | grep -E "$forbidden_path_pattern"; then
+    echo "Private or generated artifacts are tracked." >&2
+    missing=1
+  fi
+
+  local private_email
+  private_email="$(printf '%s%s' 'corey.oneal' '@gmail.com')"
+  if git -C "$ROOT_DIR" grep -n -I -F "$private_email" -- . ':!*.png' ':!*.wav'; then
+    echo "Personal email is present in public source." >&2
+    missing=1
+  fi
+
+  if git -C "$ROOT_DIR" rev-parse --verify -q HEAD >/dev/null \
+    && git -C "$ROOT_DIR" log --format='%ae%n%ce' | grep -F "$private_email"; then
+    echo "Personal email is present in public history." >&2
+    missing=1
+  fi
+
+  if [[ -f "$ROOT_DIR/.github/workflows/ai-remediation.yml" \
+    || -f "$ROOT_DIR/.github/workflows/auto-merge.yml" \
+    || -f "$ROOT_DIR/.github/workflows/pr-controller.yml" \
+    || -f "$ROOT_DIR/.github/workflows/release.yml" \
+    || -f "$ROOT_DIR/.github/workflows/staging.yml" ]]; then
+    echo "Internal write or release workflow is still present." >&2
+    missing=1
+  fi
+
+  if [[ "$missing" -ne 0 ]]; then
+    return 1
+  fi
+  echo "Public repository check passed."
+}
+
+lint_repo() {
+  public_check
+  if grep -R -n -E 'NSScreenCaptureUsageDescription|ScreenCaptureKit|record screen video' "$ROOT_DIR/project.yml" "$ROOT_DIR/Sources" >/tmp/antrum-lint-screen.txt 2>/dev/null; then
+    cat /tmp/antrum-lint-screen.txt >&2
+    echo "Screen-recording capture is not supported by this public source build." >&2
+    return 1
+  fi
+  echo "Public repository lint passed."
+}
+
+json_bool() {
+  if "$@" >/dev/null 2>&1; then
+    printf 'true'
+  else
+    printf 'false'
+  fi
+}
+
+doctor() {
+  local json="${1:-}"
+  local macos xcode xcodegen_available project_exists package_lock_exists
+  macos="$(sw_vers -productVersion 2>/dev/null || echo unknown)"
+  xcode="$(xcodebuild -version 2>/dev/null | tr '\n' ' ' | sed 's/[[:space:]]*$//' || echo unavailable)"
+  xcodegen_available="$(json_bool command -v xcodegen)"
+  project_exists="$(json_bool test -d "$PROJECT")"
+  package_lock_exists="$(json_bool test -f "$PROJECT/project.xcworkspace/xcshareddata/swiftpm/Package.resolved")"
+
+  if [[ "$json" == "--json" ]]; then
+    cat <<JSON
+{
+  "macOS": "$macos",
+  "xcode": "$xcode",
+  "xcodegenAvailable": $xcodegen_available,
+  "projectExists": $project_exists,
+  "packageResolvedExists": $package_lock_exists,
+  "appSupportPath": "$HOME/Library/Application Support/Antrum",
+  "modelsPath": "$HOME/Library/Application Support/Antrum/Models"
+}
+JSON
+    return
+  fi
+
+  echo "Antrum doctor"
+  echo "macOS: $macos"
+  echo "Xcode: $xcode"
+  echo "xcodegen available: $xcodegen_available"
+  echo "project exists: $project_exists"
+  echo "Package.resolved exists: $package_lock_exists"
+  echo "app support: $HOME/Library/Application Support/Antrum"
+  echo "models: $HOME/Library/Application Support/Antrum/Models"
+}
+
+main() {
+  local command="${1:-}"
+  case "$command" in
+    generate) generate ;;
+    build) build ;;
+    test) test_app ;;
+    run) run_app ;;
+    lint) lint_repo ;;
+    doctor) doctor "${2:-}" ;;
+    secret-scan) secret_scan ;;
+    public-check) public_check ;;
+    -h|--help|help|"") usage ;;
+    *)
+      echo "Unknown command: $command" >&2
+      usage >&2
+      return 2
+      ;;
+  esac
+}
+
+main "$@"

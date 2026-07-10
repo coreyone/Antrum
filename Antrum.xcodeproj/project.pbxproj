@@ -1,0 +1,659 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04E61C42F51BE81E98A7CE2F /* MeetingDetectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFA14121EA45315151428D5 /* MeetingDetectionTests.swift */; };
+		0EB652B489DDCC6D9F63C310 /* LiveMeetingRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD71F78F3036E287BE6F7295 /* LiveMeetingRecorder.swift */; };
+		1744E1FE840987F4B1FC125E /* FluidAudio in Frameworks */ = {isa = PBXBuildFile; productRef = F5C71A746B67CAC470059D7E /* FluidAudio */; };
+		199F28AD9DC69801FA710E7E /* RecordingFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B0AC9B0445C1AC16285238 /* RecordingFeatureTests.swift */; };
+		1D1499EF538EB8547F11636C /* MeetingDetectionHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9BE3D748DBFBDB8F5ABAF /* MeetingDetectionHUDView.swift */; };
+		27CC06945E2079EC7DF8D071 /* AntrumApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48F3AEE095188E48283065 /* AntrumApp.swift */; };
+		297CAA935CA5515B5BB63237 /* AppWindowSizePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D9AFAE0FF084E7889AC7F5 /* AppWindowSizePolicy.swift */; };
+		2C99869C86855FE39F9BC5CA /* CalendarContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF367D0AD7A8FB5C1A12D89 /* CalendarContextTests.swift */; };
+		3AD58B18198522D2840564CC /* AppErrorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67E833CC76C23ADF7EC7592 /* AppErrorCodes.swift */; };
+		3EF3DB0088BE6EDF4ED5267B /* SpeakerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDA029C126AF18A7917A62B /* SpeakerRowView.swift */; };
+		488DD8068D51771ECE255CE3 /* TranscriptMarkdownBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D752CCAC69E2ACCB16C022A /* TranscriptMarkdownBuilderTests.swift */; };
+		494BA52818EB3960DAD63D52 /* AppPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA03ADAD136838B6B378966 /* AppPresentationManager.swift */; };
+		4CDD0E139FC9EEF2925D45C0 /* MeetingPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF86449B29E490E74D0C6500 /* MeetingPipeline.swift */; };
+		5367F3F424B3C8F6CFD5698B /* FluidAudioConcurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511BCCF6E1A93263EF4BB0DB /* FluidAudioConcurrency.swift */; };
+		5444FD0B8D70F0CF2ED50FB9 /* DictationInsertionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6BEC7D657F848429ACC679 /* DictationInsertionService.swift */; };
+		57F8416408B6DD3A8E66D6C3 /* MeetingDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E31E2AD31C674863345CFCC /* MeetingDetection.swift */; };
+		587AD469A3A58E56A052C11C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A3EFE984C216A9213C035AA /* Assets.xcassets */; };
+		62420AE498226CCB8E948ED8 /* FluidAudioDownloadGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A9A787DBB9C92071F75A20 /* FluidAudioDownloadGate.swift */; };
+		714410DB3D99FAE0B93D2991 /* AudioPreparation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAF570F57777907722C8F52 /* AudioPreparation.swift */; };
+		718101BDD7566E20C385EB0B /* AudioCaptureSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A2560B25B23D47E3B42A84 /* AudioCaptureSupport.swift */; };
+		809E93B9E02BA8986D17FF14 /* TranscriptAlignerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B575680BE54C3873D9EB8EFF /* TranscriptAlignerTests.swift */; };
+		81FF82DA88B5566FC770FAD2 /* ReviewMetricsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856D66898C3A8853B89C3D04 /* ReviewMetricsTests.swift */; };
+		8B3057E9FDB676D3CD7C4C1A /* AppStoreReadiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CDA3420D9C335F6147B512 /* AppStoreReadiness.swift */; };
+		8B6827EC7A24489AEE0F09B5 /* DictationHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D76C469EB170A1B2A61F480 /* DictationHUDView.swift */; };
+		929B550897D41E23F8623C0F /* DictationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C91BD17F6594852BE99B30 /* DictationModels.swift */; };
+		9528579BB1F6852FEF3FA93A /* PixelGlyphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952DACFCA956A0849ABF44D1 /* PixelGlyphView.swift */; };
+		95B1BC223C9FB5CA0036B0BC /* MeetingTranscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD38BF6087A229D95F1E2E56 /* MeetingTranscriptionViewModel.swift */; };
+		975F759EC7AEAAEC8BC773E3 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ED1E5C24558337B68CC983 /* AppTheme.swift */; };
+		9B1FB109FA372F083978E465 /* FeatureFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED157C09079281EE94C0B56 /* FeatureFlags.swift */; };
+		A3B83B6394F4372682729FCC /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 304CC9E7582F7E5A933F311B /* PrivacyInfo.xcprivacy */; };
+		A442317308801F129ABF48EB /* OperationalMaturityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F065229D09F672D348D4052 /* OperationalMaturityTests.swift */; };
+		AC268972EEDC4E0B2E95DB73 /* PublicRepositoryReadinessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B879B0EC9F5C59FF92966B6 /* PublicRepositoryReadinessTests.swift */; };
+		AC307EF1DA6494E46F2DE4F0 /* AudioPreparationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0A22354713B9DB24FBAAA4 /* AudioPreparationTests.swift */; };
+		AD0DB2DA655BBA077D4D93A4 /* CalendarContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56870D2555791A209EADDAC2 /* CalendarContext.swift */; };
+		ADE535A96E537784DAC35117 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE481055D191FE0A47348F19 /* ContentView.swift */; };
+		AFE4E67F44F7F3CDE0174D0F /* DesignSystemMaturityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EA8D68B80B0060AFCDAA62 /* DesignSystemMaturityTests.swift */; };
+		B68FD93A0D54DE2E8A9D1CC4 /* SortformerPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC2D4CAF48A781FFBB30F4A /* SortformerPolicyTests.swift */; };
+		BDCEAB953F8946538E786C0C /* AppModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56109F90AFD74EDB8EB475 /* AppModels.swift */; };
+		C0B32F93BE1A70C7263CB9E4 /* CoreAudioProcessTapSystemAudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3EBA0C3B437745C90FD138 /* CoreAudioProcessTapSystemAudioRecorder.swift */; };
+		C9C6F24822302643C31D3932 /* ModelSetupPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FDBC3C07B978870E223E04 /* ModelSetupPopover.swift */; };
+		CAD768782108A1AE3BD2E957 /* AppStoreReadinessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A4A55308E735BC0CF181E5 /* AppStoreReadinessTests.swift */; };
+		CCECA42591FB72007096737B /* DictationAudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD8DC3611054844F49032BD /* DictationAudioRecorder.swift */; };
+		CFCBC9A345B6CABAAACDB633 /* TranscriptBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A66D110A63B6E37565E1E1E /* TranscriptBlockView.swift */; };
+		D634F100F03AB49608F7573A /* AntrumAppIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A033FBDC78995AF6EB7273F /* AntrumAppIntents.swift */; };
+		DA277913B7B883F7186A6E49 /* DictationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08613AEB7FF622AB513D9CC /* DictationController.swift */; };
+		DBD18C47EB1101AB45F965A5 /* DictationHotKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24349E6C314A1257976BBB0D /* DictationHotKeyManager.swift */; };
+		DF5DB0CA4E4ABDD110B93FBD /* DictationFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D2F3A92D23B33234F84A67 /* DictationFeatureTests.swift */; };
+		E6EA7F139ADCC4EA39CC38B3 /* TranscriptMarkdownBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC4D2000C0984B6635C1AE /* TranscriptMarkdownBuilder.swift */; };
+		EE30A382ECC63DA04A09F1B2 /* DictationSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A31EB728AA8760FC8F2B97D /* DictationSettingsView.swift */; };
+		F070B5D691A4E75EACF20AC9 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E967B90B36D95D866FF1880 /* PrivacyPolicyView.swift */; };
+		F0DC06293E26903AA2D60F0F /* ModelSetupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4E369F8ADBB17626F7373 /* ModelSetupTests.swift */; };
+		F3D65F128AB49D711BFCD1A0 /* DictationModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C25DEC3325B092A20EC9E /* DictationModelManager.swift */; };
+		FA7E919987282ED91D66F3F7 /* ModelSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F007FB313F23872655BC2D00 /* ModelSetup.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B79419DF5EC1A475298B8207 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E282CE7C3196F3FD8D763992 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 29A9502E80B89A7223627E84;
+			remoteInfo = Antrum;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04F4E369F8ADBB17626F7373 /* ModelSetupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSetupTests.swift; sourceTree = "<group>"; };
+		0B57AD24D64DAA550D30B24C /* AntrumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AntrumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D752CCAC69E2ACCB16C022A /* TranscriptMarkdownBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptMarkdownBuilderTests.swift; sourceTree = "<group>"; };
+		0DF367D0AD7A8FB5C1A12D89 /* CalendarContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContextTests.swift; sourceTree = "<group>"; };
+		17EA8D68B80B0060AFCDAA62 /* DesignSystemMaturityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystemMaturityTests.swift; sourceTree = "<group>"; };
+		24349E6C314A1257976BBB0D /* DictationHotKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictationHotKeyManager.swift; sourceTree = "<group>"; };
+		28D2F3A92D23B33234F84A67 /* DictationFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictationFeatureTests.swift; sourceTree = "<group>"; };
+		29A9A787DBB9C92071F75A20 /* FluidAudioDownloadGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidAudioDownloadGate.swift; sourceTree = "<group>"; };
+		2B879B0EC9F5C59FF92966B6 /* PublicRepositoryReadinessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicRepositoryReadinessTests.swift; sourceTree = "<group>"; };
+		2BAF570F57777907722C8F52 /* AudioPreparation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPreparation.swift; sourceTree = "<group>"; };
+		304CC9E7582F7E5A933F311B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		3F065229D09F672D348D4052 /* OperationalMaturityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationalMaturityTests.swift; sourceTree = "<group>"; };
+		3F0A22354713B9DB24FBAAA4 /* AudioPreparationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPreparationTests.swift; sourceTree = "<group>"; };
+		46C91BD17F6594852BE99B30 /* DictationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictationModels.swift; sourceTree = "<group>"; };
+		4A033FBDC78995AF6EB7273F /* AntrumAppIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntrumAppIntents.swift; sourceTree = "<group>"; };
+		4CD8DC3611054844F49032BD /* DictationAudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictationAudioRecorder.swift; sourceTree = "<group>"; };
+		4DDA029C126AF18A7917A62B /* SpeakerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerRowView.swift; sourceTree = "<group>"; };
+		4EA03ADAD136838B6B378966 /* AppPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPresentationManager.swift; sourceTree = "<group>"; };
+		509C25DEC3325B092A20EC9E /* DictationModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictationModelManager.swift; sourceTree = "<group>"; };
+		511BCCF6E1A93263EF4BB0DB /* FluidAudioConcurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidAudioConcurrency.swift; sourceTree = "<group>"; };
+		542C4769231683A18EA68875 /* Antrum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Antrum.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		56870D2555791A209EADDAC2 /* CalendarContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContext.swift; sourceTree = "<group>"; };
+		5BFA14121EA45315151428D5 /* MeetingDetectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetectionTests.swift; sourceTree = "<group>"; };
+		5D76C469EB170A1B2A61F480 /* DictationHUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictationHUDView.swift; sourceTree = "<group>"; };
+		6A66D110A63B6E37565E1E1E /* TranscriptBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptBlockView.swift; sourceTree = "<group>"; };
+		6E967B90B36D95D866FF1880 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		7D56109F90AFD74EDB8EB475 /* AppModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModels.swift; sourceTree = "<group>"; };
+		856D66898C3A8853B89C3D04 /* ReviewMetricsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewMetricsTests.swift; sourceTree = "<group>"; };
+		8A31EB728AA8760FC8F2B97D /* DictationSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictationSettingsView.swift; sourceTree = "<group>"; };
+		8BC2D4CAF48A781FFBB30F4A /* SortformerPolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortformerPolicyTests.swift; sourceTree = "<group>"; };
+		952DACFCA956A0849ABF44D1 /* PixelGlyphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelGlyphView.swift; sourceTree = "<group>"; };
+		98B0AC9B0445C1AC16285238 /* RecordingFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingFeatureTests.swift; sourceTree = "<group>"; };
+		9A3EFE984C216A9213C035AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9E31E2AD31C674863345CFCC /* MeetingDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetection.swift; sourceTree = "<group>"; };
+		A0D9AFAE0FF084E7889AC7F5 /* AppWindowSizePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWindowSizePolicy.swift; sourceTree = "<group>"; };
+		A67E833CC76C23ADF7EC7592 /* AppErrorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrorCodes.swift; sourceTree = "<group>"; };
+		A8D9BE3D748DBFBDB8F5ABAF /* MeetingDetectionHUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingDetectionHUDView.swift; sourceTree = "<group>"; };
+		AE3EBA0C3B437745C90FD138 /* CoreAudioProcessTapSystemAudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAudioProcessTapSystemAudioRecorder.swift; sourceTree = "<group>"; };
+		B0A2560B25B23D47E3B42A84 /* AudioCaptureSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCaptureSupport.swift; sourceTree = "<group>"; };
+		B2A86F2E8E1CB50B10A2A808 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B3EC4D2000C0984B6635C1AE /* TranscriptMarkdownBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptMarkdownBuilder.swift; sourceTree = "<group>"; };
+		B575680BE54C3873D9EB8EFF /* TranscriptAlignerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptAlignerTests.swift; sourceTree = "<group>"; };
+		BE6BEC7D657F848429ACC679 /* DictationInsertionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictationInsertionService.swift; sourceTree = "<group>"; };
+		C7FDBC3C07B978870E223E04 /* ModelSetupPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSetupPopover.swift; sourceTree = "<group>"; };
+		D08613AEB7FF622AB513D9CC /* DictationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictationController.swift; sourceTree = "<group>"; };
+		DA48F3AEE095188E48283065 /* AntrumApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntrumApp.swift; sourceTree = "<group>"; };
+		DE481055D191FE0A47348F19 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DF86449B29E490E74D0C6500 /* MeetingPipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingPipeline.swift; sourceTree = "<group>"; };
+		E0A4A55308E735BC0CF181E5 /* AppStoreReadinessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreReadinessTests.swift; sourceTree = "<group>"; };
+		E5CDA3420D9C335F6147B512 /* AppStoreReadiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreReadiness.swift; sourceTree = "<group>"; };
+		EC8E43FD7F6BF3C9BEB6F0D1 /* Antrum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Antrum.entitlements; sourceTree = "<group>"; };
+		EED157C09079281EE94C0B56 /* FeatureFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlags.swift; sourceTree = "<group>"; };
+		F007FB313F23872655BC2D00 /* ModelSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSetup.swift; sourceTree = "<group>"; };
+		F6ED1E5C24558337B68CC983 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		FD38BF6087A229D95F1E2E56 /* MeetingTranscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingTranscriptionViewModel.swift; sourceTree = "<group>"; };
+		FD71F78F3036E287BE6F7295 /* LiveMeetingRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveMeetingRecorder.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE93ACED0BD6A55E79806AFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1744E1FE840987F4B1FC125E /* FluidAudio in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0EFFA6FA280D7A6BC239A4DD = {
+			isa = PBXGroup;
+			children = (
+				C71AA758082792B4F6F73859 /* AntrumTests */,
+				656E679BCBBA38F6C0D6AF57 /* Sources */,
+				155E75795D41615206425D27 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		155E75795D41615206425D27 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				542C4769231683A18EA68875 /* Antrum.app */,
+				0B57AD24D64DAA550D30B24C /* AntrumTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		656E679BCBBA38F6C0D6AF57 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				EC8E43FD7F6BF3C9BEB6F0D1 /* Antrum.entitlements */,
+				DA48F3AEE095188E48283065 /* AntrumApp.swift */,
+				4A033FBDC78995AF6EB7273F /* AntrumAppIntents.swift */,
+				A67E833CC76C23ADF7EC7592 /* AppErrorCodes.swift */,
+				7D56109F90AFD74EDB8EB475 /* AppModels.swift */,
+				4EA03ADAD136838B6B378966 /* AppPresentationManager.swift */,
+				E5CDA3420D9C335F6147B512 /* AppStoreReadiness.swift */,
+				F6ED1E5C24558337B68CC983 /* AppTheme.swift */,
+				A0D9AFAE0FF084E7889AC7F5 /* AppWindowSizePolicy.swift */,
+				9A3EFE984C216A9213C035AA /* Assets.xcassets */,
+				B0A2560B25B23D47E3B42A84 /* AudioCaptureSupport.swift */,
+				2BAF570F57777907722C8F52 /* AudioPreparation.swift */,
+				56870D2555791A209EADDAC2 /* CalendarContext.swift */,
+				DE481055D191FE0A47348F19 /* ContentView.swift */,
+				AE3EBA0C3B437745C90FD138 /* CoreAudioProcessTapSystemAudioRecorder.swift */,
+				4CD8DC3611054844F49032BD /* DictationAudioRecorder.swift */,
+				D08613AEB7FF622AB513D9CC /* DictationController.swift */,
+				24349E6C314A1257976BBB0D /* DictationHotKeyManager.swift */,
+				5D76C469EB170A1B2A61F480 /* DictationHUDView.swift */,
+				BE6BEC7D657F848429ACC679 /* DictationInsertionService.swift */,
+				509C25DEC3325B092A20EC9E /* DictationModelManager.swift */,
+				46C91BD17F6594852BE99B30 /* DictationModels.swift */,
+				8A31EB728AA8760FC8F2B97D /* DictationSettingsView.swift */,
+				EED157C09079281EE94C0B56 /* FeatureFlags.swift */,
+				511BCCF6E1A93263EF4BB0DB /* FluidAudioConcurrency.swift */,
+				29A9A787DBB9C92071F75A20 /* FluidAudioDownloadGate.swift */,
+				B2A86F2E8E1CB50B10A2A808 /* Info.plist */,
+				FD71F78F3036E287BE6F7295 /* LiveMeetingRecorder.swift */,
+				9E31E2AD31C674863345CFCC /* MeetingDetection.swift */,
+				A8D9BE3D748DBFBDB8F5ABAF /* MeetingDetectionHUDView.swift */,
+				DF86449B29E490E74D0C6500 /* MeetingPipeline.swift */,
+				FD38BF6087A229D95F1E2E56 /* MeetingTranscriptionViewModel.swift */,
+				F007FB313F23872655BC2D00 /* ModelSetup.swift */,
+				C7FDBC3C07B978870E223E04 /* ModelSetupPopover.swift */,
+				304CC9E7582F7E5A933F311B /* PrivacyInfo.xcprivacy */,
+				6E967B90B36D95D866FF1880 /* PrivacyPolicyView.swift */,
+				B3EC4D2000C0984B6635C1AE /* TranscriptMarkdownBuilder.swift */,
+				AAA8439B124B4365BBADF1CB /* Views */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		AAA8439B124B4365BBADF1CB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				952DACFCA956A0849ABF44D1 /* PixelGlyphView.swift */,
+				4DDA029C126AF18A7917A62B /* SpeakerRowView.swift */,
+				6A66D110A63B6E37565E1E1E /* TranscriptBlockView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C71AA758082792B4F6F73859 /* AntrumTests */ = {
+			isa = PBXGroup;
+			children = (
+				E0A4A55308E735BC0CF181E5 /* AppStoreReadinessTests.swift */,
+				3F0A22354713B9DB24FBAAA4 /* AudioPreparationTests.swift */,
+				0DF367D0AD7A8FB5C1A12D89 /* CalendarContextTests.swift */,
+				17EA8D68B80B0060AFCDAA62 /* DesignSystemMaturityTests.swift */,
+				28D2F3A92D23B33234F84A67 /* DictationFeatureTests.swift */,
+				5BFA14121EA45315151428D5 /* MeetingDetectionTests.swift */,
+				04F4E369F8ADBB17626F7373 /* ModelSetupTests.swift */,
+				3F065229D09F672D348D4052 /* OperationalMaturityTests.swift */,
+				2B879B0EC9F5C59FF92966B6 /* PublicRepositoryReadinessTests.swift */,
+				98B0AC9B0445C1AC16285238 /* RecordingFeatureTests.swift */,
+				856D66898C3A8853B89C3D04 /* ReviewMetricsTests.swift */,
+				8BC2D4CAF48A781FFBB30F4A /* SortformerPolicyTests.swift */,
+				B575680BE54C3873D9EB8EFF /* TranscriptAlignerTests.swift */,
+				0D752CCAC69E2ACCB16C022A /* TranscriptMarkdownBuilderTests.swift */,
+			);
+			name = AntrumTests;
+			path = Tests/AntrumTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		29A9502E80B89A7223627E84 /* Antrum */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20C333C11672DBD689801B46 /* Build configuration list for PBXNativeTarget "Antrum" */;
+			buildPhases = (
+				1FCD69283A10994142B34B1D /* Sources */,
+				FE9206DF453E2825772F122E /* Resources */,
+				BE93ACED0BD6A55E79806AFD /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Antrum;
+			packageProductDependencies = (
+				F5C71A746B67CAC470059D7E /* FluidAudio */,
+			);
+			productName = Antrum;
+			productReference = 542C4769231683A18EA68875 /* Antrum.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5E29D2F03AB75B25DFA4437B /* AntrumTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 173AE4834F4B08C32F430694 /* Build configuration list for PBXNativeTarget "AntrumTests" */;
+			buildPhases = (
+				51118DBE744CD0B4435DDAA5 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0914BAF23E7ADF80A73EB468 /* PBXTargetDependency */,
+			);
+			name = AntrumTests;
+			packageProductDependencies = (
+			);
+			productName = AntrumTests;
+			productReference = 0B57AD24D64DAA550D30B24C /* AntrumTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E282CE7C3196F3FD8D763992 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = FB950FB52D49D48AFBF18972 /* Build configuration list for PBXProject "Antrum" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 0EFFA6FA280D7A6BC239A4DD;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D37A66B8CAC8E4429AEA5212 /* XCRemoteSwiftPackageReference "FluidAudio" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 155E75795D41615206425D27 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				29A9502E80B89A7223627E84 /* Antrum */,
+				5E29D2F03AB75B25DFA4437B /* AntrumTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FE9206DF453E2825772F122E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				587AD469A3A58E56A052C11C /* Assets.xcassets in Resources */,
+				A3B83B6394F4372682729FCC /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1FCD69283A10994142B34B1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27CC06945E2079EC7DF8D071 /* AntrumApp.swift in Sources */,
+				D634F100F03AB49608F7573A /* AntrumAppIntents.swift in Sources */,
+				3AD58B18198522D2840564CC /* AppErrorCodes.swift in Sources */,
+				BDCEAB953F8946538E786C0C /* AppModels.swift in Sources */,
+				494BA52818EB3960DAD63D52 /* AppPresentationManager.swift in Sources */,
+				8B3057E9FDB676D3CD7C4C1A /* AppStoreReadiness.swift in Sources */,
+				975F759EC7AEAAEC8BC773E3 /* AppTheme.swift in Sources */,
+				297CAA935CA5515B5BB63237 /* AppWindowSizePolicy.swift in Sources */,
+				718101BDD7566E20C385EB0B /* AudioCaptureSupport.swift in Sources */,
+				714410DB3D99FAE0B93D2991 /* AudioPreparation.swift in Sources */,
+				AD0DB2DA655BBA077D4D93A4 /* CalendarContext.swift in Sources */,
+				ADE535A96E537784DAC35117 /* ContentView.swift in Sources */,
+				C0B32F93BE1A70C7263CB9E4 /* CoreAudioProcessTapSystemAudioRecorder.swift in Sources */,
+				CCECA42591FB72007096737B /* DictationAudioRecorder.swift in Sources */,
+				DA277913B7B883F7186A6E49 /* DictationController.swift in Sources */,
+				8B6827EC7A24489AEE0F09B5 /* DictationHUDView.swift in Sources */,
+				DBD18C47EB1101AB45F965A5 /* DictationHotKeyManager.swift in Sources */,
+				5444FD0B8D70F0CF2ED50FB9 /* DictationInsertionService.swift in Sources */,
+				F3D65F128AB49D711BFCD1A0 /* DictationModelManager.swift in Sources */,
+				929B550897D41E23F8623C0F /* DictationModels.swift in Sources */,
+				EE30A382ECC63DA04A09F1B2 /* DictationSettingsView.swift in Sources */,
+				9B1FB109FA372F083978E465 /* FeatureFlags.swift in Sources */,
+				5367F3F424B3C8F6CFD5698B /* FluidAudioConcurrency.swift in Sources */,
+				62420AE498226CCB8E948ED8 /* FluidAudioDownloadGate.swift in Sources */,
+				0EB652B489DDCC6D9F63C310 /* LiveMeetingRecorder.swift in Sources */,
+				57F8416408B6DD3A8E66D6C3 /* MeetingDetection.swift in Sources */,
+				1D1499EF538EB8547F11636C /* MeetingDetectionHUDView.swift in Sources */,
+				4CDD0E139FC9EEF2925D45C0 /* MeetingPipeline.swift in Sources */,
+				95B1BC223C9FB5CA0036B0BC /* MeetingTranscriptionViewModel.swift in Sources */,
+				FA7E919987282ED91D66F3F7 /* ModelSetup.swift in Sources */,
+				C9C6F24822302643C31D3932 /* ModelSetupPopover.swift in Sources */,
+				9528579BB1F6852FEF3FA93A /* PixelGlyphView.swift in Sources */,
+				F070B5D691A4E75EACF20AC9 /* PrivacyPolicyView.swift in Sources */,
+				3EF3DB0088BE6EDF4ED5267B /* SpeakerRowView.swift in Sources */,
+				CFCBC9A345B6CABAAACDB633 /* TranscriptBlockView.swift in Sources */,
+				E6EA7F139ADCC4EA39CC38B3 /* TranscriptMarkdownBuilder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		51118DBE744CD0B4435DDAA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAD768782108A1AE3BD2E957 /* AppStoreReadinessTests.swift in Sources */,
+				AC307EF1DA6494E46F2DE4F0 /* AudioPreparationTests.swift in Sources */,
+				2C99869C86855FE39F9BC5CA /* CalendarContextTests.swift in Sources */,
+				AFE4E67F44F7F3CDE0174D0F /* DesignSystemMaturityTests.swift in Sources */,
+				DF5DB0CA4E4ABDD110B93FBD /* DictationFeatureTests.swift in Sources */,
+				04E61C42F51BE81E98A7CE2F /* MeetingDetectionTests.swift in Sources */,
+				F0DC06293E26903AA2D60F0F /* ModelSetupTests.swift in Sources */,
+				A442317308801F129ABF48EB /* OperationalMaturityTests.swift in Sources */,
+				AC268972EEDC4E0B2E95DB73 /* PublicRepositoryReadinessTests.swift in Sources */,
+				199F28AD9DC69801FA710E7E /* RecordingFeatureTests.swift in Sources */,
+				81FF82DA88B5566FC770FAD2 /* ReviewMetricsTests.swift in Sources */,
+				B68FD93A0D54DE2E8A9D1CC4 /* SortformerPolicyTests.swift in Sources */,
+				809E93B9E02BA8986D17FF14 /* TranscriptAlignerTests.swift in Sources */,
+				488DD8068D51771ECE255CE3 /* TranscriptMarkdownBuilderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0914BAF23E7ADF80A73EB468 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 29A9502E80B89A7223627E84 /* Antrum */;
+			targetProxy = B79419DF5EC1A475298B8207 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4031AE183B8C66E547056B30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coreyoneal.AntrumTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Antrum.app/Contents/MacOS/Antrum";
+			};
+			name = Release;
+		};
+		53F0DBA265D21E7E65EAD545 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sources/Antrum.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Sources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Antrum;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coreyoneal.Antrum;
+				PRODUCT_NAME = Antrum;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		656C0BB1D40B73142ADA08F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sources/Antrum.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Sources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Antrum;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coreyoneal.Antrum;
+				PRODUCT_NAME = Antrum;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		67EBE1AAFD73BFB4727C7E11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		837ECD42C485A375D6CFDD60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		E3D0A3BAA37226E033D7A799 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coreyoneal.AntrumTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Antrum.app/Contents/MacOS/Antrum";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		173AE4834F4B08C32F430694 /* Build configuration list for PBXNativeTarget "AntrumTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3D0A3BAA37226E033D7A799 /* Debug */,
+				4031AE183B8C66E547056B30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		20C333C11672DBD689801B46 /* Build configuration list for PBXNativeTarget "Antrum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				656C0BB1D40B73142ADA08F2 /* Debug */,
+				53F0DBA265D21E7E65EAD545 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FB950FB52D49D48AFBF18972 /* Build configuration list for PBXProject "Antrum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				837ECD42C485A375D6CFDD60 /* Debug */,
+				67EBE1AAFD73BFB4727C7E11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D37A66B8CAC8E4429AEA5212 /* XCRemoteSwiftPackageReference "FluidAudio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/FluidInference/FluidAudio.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.15.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F5C71A746B67CAC470059D7E /* FluidAudio */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D37A66B8CAC8E4429AEA5212 /* XCRemoteSwiftPackageReference "FluidAudio" */;
+			productName = FluidAudio;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = E282CE7C3196F3FD8D763992 /* Project object */;
+}
